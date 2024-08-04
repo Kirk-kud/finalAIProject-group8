@@ -16,4 +16,4 @@ Alternatively, it could be locally hosted using the .py file also found in this 
 **Credits:**
 Project Authors: Welile Dlamini and Kirk Kudoto
 
-Link to YouTube demo video: **insert video link here**
+Link to YouTube demo video: **{insert video link here}**
