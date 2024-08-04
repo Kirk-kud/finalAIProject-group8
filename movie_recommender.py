@@ -40,8 +40,8 @@ def recommend_movies(description, top_n=5):
 
 st.title('Movie Recommender')
 
-user_input = st.text_area("Enter a movie description:")
-num_recommendations = st.number_input("Number of recommendations:", min_value=1, max_value=20, value=5, step=1)
+user_input = st.text_area("Describe the movie you want to watch: ")
+num_recommendations = st.number_input("How many recommendations do you want:", min_value=1, max_value=20, value=5, step=1)
 
 if st.button('Recommend Movies'):
     if user_input:
@@ -51,6 +51,8 @@ if st.button('Recommend Movies'):
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
                 st.write(f"{i}. {movie['title']}")
                 with st.expander("See plot"):
+                    st.write(movie['imdbRating'])
+                    st.write(movie['genre'])
                     st.write(movie['plot'])
     else:
         st.warning("Please enter a movie description.")
