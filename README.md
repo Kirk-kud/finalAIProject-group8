@@ -11,7 +11,7 @@ The user, upon running the application, is asked for a description of the kind o
 **How to Access the Project:**
 Currently, it has been deployed on streamlit and can be accessed using the link: **insert link here** 
 Alternatively, it could be locally hosted using the .py file also found in this repository. It is implemented using streamlit so it must be installed in the terminal beforehand. All other necessary modules are listed in the 'requirements.txt' file. After all this, the file can be run using the following command:
-**streamlit run name_of_file.py**
+**streamlit run movie_app.py**
 
 **Credits:**
 Project Authors: Welile Dlamini and Kirk Kudoto
