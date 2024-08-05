@@ -30,7 +30,7 @@ def recommend_movies(description, top_n=5):
     if len(cluster_movies) > top_n:
         cluster_movies = cluster_movies.sample(n=top_n)
 
-    recommended_movies = cluster_movies[['title', 'plot', 'imdbRating', 'genre']]
+    recommended_movies = cluster_movies[['title', 'plot', 'imdbRating', 'genre', 'year']]
     return recommended_movies
 
 st.title('Perfect Movie for the Weekend')
@@ -52,7 +52,7 @@ if st.button('Recommend Movies'):
                 else:
                     st.write("No poster available for this movie.")
                     
-                st.write(f"{i}. {movie['title']}")
+                st.write(f"{i}. {movie['title']} {movie['year']}")
                 with st.expander("See Official imdB Rating"):
                     st.write(movie['imdbRating'])
                 with st.expander("See genre"):
