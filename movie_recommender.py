@@ -5,7 +5,7 @@ import pandas as pd
 import gdown
 
 # URL AND GDOWN
-df_url = 'https://drive.google.com/uc?export=download&id=1T-OKMXWWjwU12Qjy3V-sPtk2WCbewgVl'
+df_url = 'https://drive.google.com/uc?export=download&id=1noocjoeQePgIqGA8iZ2_eQmub256h59M'
 gdown.cached_download(df_url, 'dataframe.joblib')
 
 # Load the saved models and data
