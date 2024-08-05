@@ -14,6 +14,9 @@ gdown.cached_download(vectorizer_url, 'tfidf_vectorizer.joblib')
 df_url = 'https://drive.google.com/uc?export=download&id=1T-OKMXWWjwU12Qjy3V-sPtk2WCbewgVl'
 gdown.cached_download(df_url, 'dataframe.joblib')
 
+poster_url = 'https://drive.google.com/uc?export=download&id=1fMb-srZjN4dk9x2T6zDJXAkeqdLJr7oD%27'
+gdown.cached_download(poster_url, 'poster_df.joblib')
+
 # Load the saved models and data
 @st.cache_resource
 def load_models():
@@ -23,6 +26,7 @@ def load_models():
     return model, vectorizer, df
 
 model, vectorizer, df = load_models()
+poster_df = joblib.load('poster_df.joblib')
 
 def recommend_movies(description, top_n=5):
     user_input_vector = vectorizer.transform([description])
@@ -49,8 +53,8 @@ if st.button('Recommend Movies'):
             recommendations = recommend_movies(user_input, top_n=num_recommendations)
             st.subheader("Recommended Movies:")
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
-                if movie['poster'] is not np.nan:
-                    st.image(movie['poster'], use_column_width=True)
+                if poster_df[['title' == movie['title']]]['poster'] is not np.nan:
+                    st.image(poster_df[['title' == movie['title']]]['poster'], use_column_width=True)
                 else:
                     st.write("Image not available")
                 st.write(f"{i}. {movie['title']}")
