@@ -1,4 +1,4 @@
-**Project Title:** Movie Recommendation System Using K-Means Clustering and Cosine Similarities of Plots Within Clusters
+**Project Title:** Movie Recommendation System Using K-Means Clustering
 
 **Project Description:**
 This project utitlises tools such as the Tfidf vectorizer, which is used for converting text to vectors which can be more easily understood and interpreted by Machine Learning (ML) models. From a dataset of about 46,000 movies, each with a description of their plots and their ratings as listed on the official IMDb website.
