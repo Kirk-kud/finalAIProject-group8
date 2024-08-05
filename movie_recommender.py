@@ -50,8 +50,8 @@ if st.button('Recommend Movies'):
             recommendations = recommend_movies(user_input, top_n=num_recommendations)
             st.subheader("Recommended Movies:")
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
-                if poster_df[['title' == movie['title']]]['poster'] is not np.nan:
-                    st.image(poster_df[['title' == movie['title']]]['poster'], use_column_width=True)
+                if if pd.notna(poster_df[poster_df['title'] == movie['title']]['poster'].iloc[0]):
+                    st.image(poster_df[poster_df['title'] == movie['title']]['poster'], use_column_width=True)
                 else:
                     st.write("Image not available")
                 st.write(f"{i}. {movie['title']}")
