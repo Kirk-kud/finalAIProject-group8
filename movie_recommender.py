@@ -50,10 +50,14 @@ if st.button('Recommend Movies'):
             recommendations = recommend_movies(user_input, top_n=num_recommendations)
             st.subheader("Recommended Movies:")
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
-                if pd.notna(poster_df[poster_df['title'] == movie['title']]['poster'].iloc[0]):
-                    st.image(poster_df[poster_df['title'] == movie['title']]['poster'], use_column_width=True)
+                movie_title = movie['title']
+                poster_url = poster_df[poster_df['title'] == movie_title]['poster'].iloc[0] if not poster_df[poster_df['title'] == movie_title].empty else None
+
+                if poster_url:
+                    st.image(poster_url, use_column_width=True)
                 else:
-                    st.write("Image not available")
+                    st.write("No poster available for this movie.")
+                    
                 st.write(f"{i}. {movie['title']}")
                 with st.expander("See Official imdB Rating"):
                     st.write(movie['imdbRating'])
