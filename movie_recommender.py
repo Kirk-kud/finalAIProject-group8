@@ -47,7 +47,7 @@ if st.button('Recommend Movies'):
                 movie_title = movie['title']
                 poster_url = poster_df[poster_df['title'] == movie_title]['poster']
 
-                if poster_url is not np.nan:
+                if poster_url is not np.nan or poster_url is not isinstance(poster_url, pd.Series):
                     st.image(poster_url, use_column_width=True)
                 else:
                     st.write("No poster available for this movie.")
