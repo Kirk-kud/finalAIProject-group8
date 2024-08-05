@@ -36,7 +36,7 @@ def recommend_movies(description, top_n=5):
     if len(cluster_movies) > top_n:
         cluster_movies = cluster_movies.sample(n=top_n)
 
-    recommended_movies = cluster_movies[['title', 'plot', 'imdbRating', 'genre', 'poster']]
+    recommended_movies = cluster_movies[['title', 'plot', 'imdbRating', 'genre']]
     return recommended_movies
 
 st.title('Perfect Movie for the Weekend')
