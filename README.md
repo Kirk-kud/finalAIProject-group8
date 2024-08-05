@@ -19,4 +19,4 @@ The vectorizer and kmeans_model, formatted in joblib, have been included in the 
 **Credits:**
 Project Authors: Welile Dlamini and Kirk Kudoto
 
-Link to YouTube demo video: **{insert video link here}**
+Link to YouTube demo video: https://youtu.be/U333tTPs6qs
