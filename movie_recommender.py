@@ -14,9 +14,6 @@ gdown.cached_download(vectorizer_url, 'tfidf_vectorizer.joblib')
 df_url = 'https://drive.google.com/uc?export=download&id=1T-OKMXWWjwU12Qjy3V-sPtk2WCbewgVl'
 gdown.cached_download(df_url, 'dataframe.joblib')
 
-poster_url = 'https://drive.google.com/uc?export=download&id=1fMb-srZjN4dk9x2T6zDJXAkeqdLJr7oD'
-gdown.cached_download(poster_url, 'poster_df.joblib')
-
 # Load the saved models and data
 @st.cache_resource
 def load_models():
