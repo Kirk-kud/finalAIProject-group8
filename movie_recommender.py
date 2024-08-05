@@ -3,6 +3,7 @@ import joblib
 import numpy as np
 import pandas as pd
 import gdown
+from IPython.display import Image, display
 
 # URL AND GDOWN
 model_url = 'https://drive.google.com/uc?export=download&id=1uiIjP4Mq6AjQea2-8aOt-jt-VDRrOGep'
@@ -35,7 +36,7 @@ def recommend_movies(description, top_n=5):
     if len(cluster_movies) > top_n:
         cluster_movies = cluster_movies.sample(n=top_n)
 
-    recommended_movies = cluster_movies[['title', 'plot', 'imdbRating', 'genre']]
+    recommended_movies = cluster_movies[['title', 'plot', 'imdbRating', 'genre', 'poster']]
     return recommended_movies
 
 st.title('Movie Recommender')
@@ -49,6 +50,7 @@ if st.button('Recommend Movies'):
             recommendations = recommend_movies(user_input, top_n=num_recommendations)
             st.subheader("Recommended Movies:")
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
+                display(Image(url=movie['poster'))
                 st.write(f"{i}. {movie['title']}")
                 with st.expander("See Official imdB Rating"):
                     st.write(movie['imdbRating'])
