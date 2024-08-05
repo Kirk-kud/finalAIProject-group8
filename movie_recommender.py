@@ -45,14 +45,14 @@ if st.button('Recommend Movies'):
             st.subheader("Recommended Movies:")
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
                 movie_title = movie['title']
-                poster_url = poster_df[poster_df['title'] == movie_title]['poster']
+                poster_url = poster_df[poster_df['title'] == movie_title]['poster'].values
 
                 if type(poster_url) is str:
                     st.image(poster_url, use_column_width=True)
                 else:
                     st.write("No poster available for this movie.")
                     
-                st.write(f"{i}. {movie['title']} {movie['year']}")
+                st.write(f"{i}. {movie['title']} ({movie['year']})")
                 with st.expander("See Official imdB Rating"):
                     st.write(movie['imdbRating'])
                 with st.expander("See genre"):
