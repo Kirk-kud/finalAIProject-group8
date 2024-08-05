@@ -53,7 +53,7 @@ if st.button('Recommend Movies'):
                 with st.expander("See Official imdB Rating"):
                     st.write(movie['imdbRating'])
                 with st.expander("See genre"):
-                    st.write(movie['genre']
+                    st.write(movie['genre'])
                 with st.expander("See plot"):
                     st.write(movie['plot'])
     else:
