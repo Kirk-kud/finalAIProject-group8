@@ -51,7 +51,6 @@ if st.button('Recommend Movies'):
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
                 st.write(f"{i}. {movie['title']}")
                 with st.expander("See plot"):
-                    st.write(movie['genre'])
                     st.write(movie['plot'])
     else:
         st.warning("Please enter a movie description.")
