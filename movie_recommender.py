@@ -51,9 +51,9 @@ if st.button('Recommend Movies'):
             st.subheader("Recommended Movies:")
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
                 movie_title = movie['title']
-                poster_url = poster_df[poster_df['title'] == movie_title]['poster'].iloc[0] if not poster_df[poster_df['title'] == movie_title].empty else None
+                poster_url = poster_df[poster_df['title'] == movie_title]['poster']
 
-                if poster_url:
+                if poster_url is not np.nan:
                     st.image(poster_url, use_column_width=True)
                 else:
                     st.write("No poster available for this movie.")
