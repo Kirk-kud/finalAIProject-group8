@@ -45,7 +45,7 @@ if st.button('Recommend Movies'):
             st.subheader("Recommended Movies:")
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
                 movie_title = movie['title']
-                poster_url = poster_df[poster_df['title'] == movie_title]['poster'].values
+                poster_url = poster_df[poster_df['title'] == movie_title]['poster'].values[0]
 
                 if type(poster_url) is str:
                     st.image(poster_url, use_column_width=True)
