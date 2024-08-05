@@ -39,7 +39,7 @@ def recommend_movies(description, top_n=5):
     recommended_movies = cluster_movies[['title', 'plot', 'imdbRating', 'genre', 'poster']]
     return recommended_movies
 
-st.title('Movie Recommender')
+st.title('Perfect Movie for the Weekend')
 
 user_input = st.text_area("Describe the movie you want to watch: ")
 num_recommendations = st.number_input("How many recommendations do you want:", min_value=1, max_value=20, value=5, step=1)
@@ -50,7 +50,10 @@ if st.button('Recommend Movies'):
             recommendations = recommend_movies(user_input, top_n=num_recommendations)
             st.subheader("Recommended Movies:")
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
-                display(Image(url=movie['poster'))
+                if movie['poster'] is not np.nan:
+                    display(Image(url=movie['poster']))
+                else:
+                    st.write("Image not available")
                 st.write(f"{i}. {movie['title']}")
                 with st.expander("See Official imdB Rating"):
                     st.write(movie['imdbRating'])
