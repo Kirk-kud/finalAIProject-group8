@@ -1,8 +1,6 @@
-pip==24.2
 streamlit
 scikit-learn==1.2.2
 joblib==1.4.2
 numpy==1.26.4
 gdown
 pandas
-IPython.display
