@@ -3,7 +3,6 @@ import joblib
 import numpy as np
 import pandas as pd
 import gdown
-from IPython.display import Image, display
 
 # URL AND GDOWN
 model_url = 'https://drive.google.com/uc?export=download&id=1uiIjP4Mq6AjQea2-8aOt-jt-VDRrOGep'
@@ -51,7 +50,7 @@ if st.button('Recommend Movies'):
             st.subheader("Recommended Movies:")
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
                 if movie['poster'] is not np.nan:
-                    display(Image(url=movie['poster']))
+                    st.image(movie['poster'], use_column_width=True)
                 else:
                     st.write("Image not available")
                 st.write(f"{i}. {movie['title']}")
