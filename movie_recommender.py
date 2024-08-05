@@ -35,7 +35,7 @@ def recommend_movies(description, top_n=5):
     if len(cluster_movies) > top_n:
         cluster_movies = cluster_movies.sample(n=top_n)
 
-    recommended_movies = cluster_movies[['title', 'plot']]
+    recommended_movies = cluster_movies[['title', 'plot', 'imdbRating', 'genre']]
     return recommended_movies
 
 st.title('Movie Recommender')
@@ -50,6 +50,10 @@ if st.button('Recommend Movies'):
             st.subheader("Recommended Movies:")
             for i, (_, movie) in enumerate(recommendations.iterrows(), 1):
                 st.write(f"{i}. {movie['title']}")
+                with st.expander("See Official imdB Rating"):
+                    st.write(movie['imdbRating'])
+                with st.expander("See genre"):
+                    st.write(movie['genre']
                 with st.expander("See plot"):
                     st.write(movie['plot'])
     else:
