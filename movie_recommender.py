@@ -5,13 +5,13 @@ import pandas as pd
 import gdown
 
 # URL AND GDOWN
-model_url = 'https://drive.google.com/uc?export=download&id=1uiIjP4Mq6AjQea2-8aOt-jt-VDRrOGep'
+model_url = 'https://drive.google.com/uc?export=download&id=1oxxKFeKbYSqdn0Nk01_Cgdn8GqomRR0R'
 gdown.cached_download(model_url, 'kmeans_model.joblib')
 
-vectorizer_url = 'https://drive.google.com/uc?export=download&id=1ELSwjsET2Mce-ma-B1quuUbg5gtcabtj'
+vectorizer_url = 'https://drive.google.com/uc?export=download&id=1DDJHjUdMSIhemBTj63IRqh6sDAqAdyyN'
 gdown.cached_download(vectorizer_url, 'tfidf_vectorizer.joblib')
 
-df_url = 'https://drive.google.com/uc?export=download&id=1qe_KZN-0aeYiXD_DLn2V-ajCYpRQU47P'
+df_url = 'https://drive.google.com/uc?export=download&id=1fm8u-eoOuOWIe81iNNjsxLqZ62fAIRFZ'
 gdown.cached_download(df_url, 'dataframe.joblib')
 
 # Load the saved models and data
