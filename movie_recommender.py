@@ -2,7 +2,7 @@ import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
-import gdown
+import 
 
 # URL AND GDOWN
 df_url = 'https://drive.google.com/uc?export=download&id=1Pvm7KjDt494enUkdhfRtuKVrjPLDYg8G'
